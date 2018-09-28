@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const DOMNodeCollection = __webpack_require__(!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'dom_node_collection'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nwindow.$l = function(el) {\n  if(typeof(el) === \"string\") {\n    const domEls = document.querySelectorAll(el);\n    let elementArray = Array.from(domEls);\n    return elementArray;\n  } else if(el instanceof HTMLElement) {\n    return new DOMNodeCollection([el]);\n  } \n};\n\n\n//# sourceURL=webpack:///./lib/main.js?");
+eval("const DOMNodeCollection = __webpack_require__(!(function webpackMissingModule() { var e = new Error(\"Cannot find module 'dom_node_collection'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));\nwindow.$l = function(el) {\n\n  \n  let funcArray = [];\n  \n  if(typeof(el) === \"string\") {\n    const domEls = document.querySelectorAll(el);\n    let elementArray = Array.from(domEls);\n    return elementArray;\n  \n  } else if(el instanceof HTMLElement) {\n    return new DOMNodeCollection([el]);\n  \n  } else if(el instanceof Function){\n    funcArray.push(el);\n  }\n  \n  window.document.addEventListener(\"DOMContentLoaded\", function() {\n    for (let i = 0; i < funcArray.length; i++) {\n      funcArray[i]();\n    }\n  });\n   \n};\n\n\n//# sourceURL=webpack:///./lib/main.js?");
 
 /***/ })
 
